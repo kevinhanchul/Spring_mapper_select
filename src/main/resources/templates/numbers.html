@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Query</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Number Query</h1>
+이름 
+<input type="text" id="userName">
+아이디
+<input type="text" id="userId">
+<input type="button" value="조회하기" id="queryButton">
+<table>
+    <tr>
+        <td>이름</td>
+        <td>아이디</td>
+        <td>패스워드</td>
+        <td>이메일주소</td>
+    </tr>
+</table>
+
+    <script>
+        $(document).ready(function() {
+            $('#queryButton').click(function() {
+                var id = $('#id').val();
+                $.ajax({
+                    url: '/numbers/getNumber',
+                    type: 'GET',
+                    data: { id: id },
+                    success: function(result) {
+                    	var htmlcont = "";
+                    	
+                        $('#result').text('ID: ' + result.user_name + ', Number: ' + result.user_name);
+                    },
+                    error: function() {
+                        $('#result').text('Error retrieving data');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
