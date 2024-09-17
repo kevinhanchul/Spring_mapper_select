@@ -22,7 +22,8 @@
                     type: 'GET',
                     data: { id: id },
                     success: function(result) {
-                        $('#result').text('ID: ' + result.USER_NAME + ', Number: ' + result.USER_NAME);
+                    	console.log(result);
+                        $('#result').text('ID: ' + result.USER_NAME + ', Number: ' + result.USER_NAME);                        
                     },
                     error: function() {
                         $('#result').text('Error retrieving data');

@@ -10,5 +10,13 @@
         WHERE id = #{id} -->
         
         SELECT USER_NAME FROM T_USER_INFO WHERE USER_NAME='lwhathamrr'
+        <!-- select 
+			USER_NAME,
+			USER_ID,
+			USER_PW,
+			USER_EMAIL
+		from t_user_info
+		LIMIT 0,10 -->
+        
     </select>
 </mapper>
