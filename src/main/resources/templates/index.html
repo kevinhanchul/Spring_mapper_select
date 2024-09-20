@@ -23,7 +23,7 @@
             $('#queryButton').click(function() {
                 var id = $('#id').val();
                 $.ajax({
-                    url: '/index/getNumber',
+                    url: '/numbers/getNumber',
                     type: 'GET',
                     data: { id: id },
                     success: function(result) {
