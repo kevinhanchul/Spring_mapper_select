@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserInfoMapper {
-	String selUserInfo(Long id);
+	Map<String, Object> selUserInfo(Long id);
 }

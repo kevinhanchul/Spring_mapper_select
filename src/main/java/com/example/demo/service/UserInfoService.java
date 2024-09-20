@@ -16,9 +16,11 @@ public class UserInfoService {
     }
 
     public Map<String, Object> getUserInfo(Long id) {
-    	String USER_NAME =  (String) userInfoMapper.selUserInfo(id);
+    	Map<String, Object> USER_RESULT;
+    	USER_RESULT =  userInfoMapper.selUserInfo(id);
+    	System.out.println(USER_RESULT);
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("USER_NAME", USER_NAME);
+        resultMap.put("USER_RESULT", USER_RESULT);
         return resultMap;
     }
 }
