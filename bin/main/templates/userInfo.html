@@ -7,6 +7,33 @@
     <title>UserInfo Query</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
+<script>
+    $(document).ready(function() {
+        $('#queryButton').click(function() {
+            var id = $('#id').val();
+            $.ajax({
+                url: '/userInfo/getUserInfo',
+                type: 'GET',
+                data: { id: id },
+                success: function(result) {
+                	var htmlcont="";
+                	htmlcont+="<tr>";
+               		htmlcont+="<td>"+ result.USER_RESULT.USER_NAME + "</td>";
+           			htmlcont+="<td>"+ result.USER_RESULT.USER_ID + "</td>";
+       				htmlcont+="<td>"+ result.USER_RESULT.USER_PW + "</td>";
+   					htmlcont+="<td>"+ result.USER_RESULT.USER_EMAIL + "</td>";
+   					htmlcont+="</tr>";
+                    $('#result_val').html(htmlcont);
+                },
+                error: function() {
+                    $('#result_val').html('Error retrieving data');
+                }
+            });
+        });
+    });
+</script>
+
 <body>
     <h1>UserInfo Query</h1>
 이름 
@@ -15,35 +42,32 @@
 <input type="text" id="userId">
 <input type="text" id="id" placeholder="Enter ID">
 <input type="button" value="조회하기" id="queryButton">
-<p>Result: <span id="result_val"></span></p>
 <table>
-    <tr>
-        <td>이름</td>
-        <td>아이디</td>
-        <td>패스워드</td>
-        <td>이메일주소</td>
-    </tr>
+	<colgroup>
+		<col style="width:25%" />
+		<col style="width:25%" />
+		<col style="width:25%" />
+		<col />
+	</colgroup>
+    <thead>
+    	<tr>
+	        <th>이름</th>
+	        <th>아이디</th>
+	        <th>패스워드</th>
+	        <th>이메일주소</th>
+        </tr>
+    </thead>	      
+</table>
+<table>
+	<colgroup>
+		<col style="width:25%" />
+		<col style="width:25%" />
+		<col style="width:25%" />
+		<col />
+	</colgroup>
+	<tbody id="result_val"></tbody>
 </table>
 
-    <script>
-        $(document).ready(function() {
-            $('#queryButton').click(function() {
-                var id = $('#id').val();
-                $.ajax({
-                    url: '/userInfo/getUserInfo',
-                    type: 'GET',
-                    data: { id: id },
-                    success: function(result) {
-                    	var htmlcont="";
-                        $('#result_val').text('USER_NAME: ' + result.USER_RESULT.USER_NAME +'USER_ID: ' + result.USER_RESULT.USER_ID +'USER_PW: ' + result.USER_RESULT.USER_PW +'USER_EMAIL: ' + result.USER_RESULT.USER_EMAIL);
-                        console.log(result);
-                    },
-                    error: function() {
-                        $('#result_val').text('Error retrieving data');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
+
