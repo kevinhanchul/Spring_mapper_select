@@ -7,7 +7,11 @@
     <title>UserInfo Query</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
+<style>
+table, tr, td, th{
+	border: 1px solid black;
+}
+</style>
 <script>
     $(document).ready(function() {
         $('#queryButton').click(function() {
@@ -42,7 +46,8 @@
 <input type="text" id="userId">
 <input type="text" id="id" placeholder="Enter ID">
 <input type="button" value="조회하기" id="queryButton">
-<table>
+
+<table style="width:850px">
 	<colgroup>
 		<col style="width:25%" />
 		<col style="width:25%" />
@@ -56,16 +61,8 @@
 	        <th>패스워드</th>
 	        <th>이메일주소</th>
         </tr>
-    </thead>	      
-</table>
-<table>
-	<colgroup>
-		<col style="width:25%" />
-		<col style="width:25%" />
-		<col style="width:25%" />
-		<col />
-	</colgroup>
-	<tbody id="result_val"></tbody>
+    </thead>	
+    <tbody id="result_val"></tbody>      
 </table>
 
 </body>
