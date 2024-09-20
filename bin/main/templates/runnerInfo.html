@@ -13,7 +13,9 @@
 <input type="text" id="userName">
 아이디
 <input type="text" id="userId">
+<input type="text" id="id" placeholder="Enter ID">
 <input type="button" value="조회하기" id="queryButton">
+<p>Result: <span id="result"></span></p>
 <table>
     <tr>
         <td>이름</td>
@@ -32,9 +34,7 @@
                     type: 'GET',
                     data: { id: id },
                     success: function(result) {
-                    	var htmlcont = "";
-                    	
-                        $('#result').text('ID: ' + result.user_name + ', RunnerInfo: ' + result.user_name);
+                        $('#result').text('ID: ' + result.USER_NAME + ', RunnerInfo: ' + result.USER_NAME);
                     },
                     error: function() {
                         $('#result').text('Error retrieving data');
