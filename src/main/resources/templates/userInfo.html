@@ -17,6 +17,7 @@ table, tr, td, th{
     $(document).ready(function() {
         $('#queryButton').click(function() {
             var id = $('#id').val();
+            id = 1000;
             $.ajax({
                 url: '/userInfo/getUserInfo',
                 type: 'GET',
@@ -40,7 +41,7 @@ table, tr, td, th{
 </script>
 
 <body>
-    <h1>UserInfo Query</h1>
+    <h4>UserInfo Query</h4>
 이름 
 <input type="text" id="userName">
 아이디

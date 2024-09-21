@@ -18,9 +18,9 @@ public class UserInfoService {
     public Map<String, Object> getUserInfo(Long id) {
     	Map<String, Object> USER_RESULT;
     	USER_RESULT =  userInfoMapper.selUserInfo(id);
-    	System.out.println(USER_RESULT);
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("USER_RESULT", USER_RESULT);
         return resultMap;
     }
+    
 }

@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h4>Number Query</h4>
+    <h4>Index</h4>
     고객정보 : <a href="http://localhost:8080/userInfo">고객정보</a><br>
     주자정보 : <a href="http://localhost:8080/runnerInfo">주자정보</a><br>
     경주정보 : <a href="http://localhost:8080/raceInfo">경주정보</a><br>
@@ -23,6 +23,7 @@
         $(document).ready(function() {
             $('#queryButton').click(function() {
                 var id = $('#id').val();
+                id = 1000;
                 $.ajax({
                     url: '/numbers/getNumber',
                     type: 'GET',
