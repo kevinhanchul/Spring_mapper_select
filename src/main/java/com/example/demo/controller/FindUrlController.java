@@ -47,6 +47,14 @@ public class FindUrlController {
         mav.addObject("message", "Hello, abc.html!");
         return mav;
     }
+
+    @GetMapping("/userInsert")
+    private ModelAndView userInsert() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("userInsert");
+        mav.addObject("message", "Hello, abc.html!");
+        return mav;
+    }
     
     @PostMapping("/add2")
     public Map<String, Integer> addNumbers(@RequestBody Map<String, String> numbers) throws Exception {

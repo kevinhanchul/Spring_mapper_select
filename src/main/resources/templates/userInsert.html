@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserInsert Query</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+table, tr, td, th{
+	border: 1px solid black;
+}
+</style>
+<script>
+    $(document).ready(function() {
+        $('#queryButton').click(function() {
+            var id = $('#id').val();
+            id = 1000;
+            $.ajax({
+                url: '/userInsert/getUserInsert',
+                type: 'GET',
+                data: { id: id },
+                success: function(result) {
+                	alert('입력되었습니다.');
+                },
+                error: function() {
+                    alert('Error retrieving data');
+                }
+            });
+        });
+    });
+</script>
+
+<body>
+    <h4>UserInsert Query</h4>
+<table>
+<tr>
+<td>이름</td>
+<td><input type="text" id="userName"><br></td>
+</tr>
+<tr>
+<td>아이디</td>
+<td><input type="text" id="userId"><br></td>
+</tr>
+<tr>
+<td>패스워드</td>
+<td><input type="text" id="userPw"><br></td>
+</tr>
+<tr>
+<td>이메일주소</td>
+<td><input type="text" id="userEmail"><br></td>
+</tr>
+</table>    
+
+<input type="text" id="id">
+<input type="button" value="입력하기" id="queryButton"><br>
+
+</body>
+</html>
+
